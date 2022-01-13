@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
-import Login from "./components/Login.js"
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
-
+import NavBar from "./components/NavBar.js"
 
 class App extends Component{
 
@@ -13,12 +12,22 @@ class App extends Component{
   
     render() {
       return (
-        <div className="App">
-          <Login/>
-        </div>
+        <NavBar/>
+        // <div className="App">
+         
+                    
+        // </div>
       );
     
   }
 }
+
+// const mapStateToProps = ({currentUser}) => {
+//   return {
+//     currentUser
+//     // loggedIn: !!state.currentUser,
+//     // trips: state.myTrips
+//   }
+// }
 
 export default connect(null, { getCurrentUser })(App);

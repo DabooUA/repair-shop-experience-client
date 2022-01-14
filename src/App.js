@@ -15,20 +15,12 @@ class App extends Component{
       return (
         
         <div className="App">
-          <NavBar/> 
+          <NavBar/>
           <MainContainer/>        
         </div>
       );
     
   }
 }
-
-// const mapStateToProps = ({currentUser}) => {
-//   return {
-//     currentUser
-//     // loggedIn: !!state.currentUser,
-//     // trips: state.myTrips
-//   }
-// }
 
 export default connect(null, { getCurrentUser })(App);

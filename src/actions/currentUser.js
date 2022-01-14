@@ -16,6 +16,7 @@ export const clearCurrentUser = () => {
 
 // asynchronous action creators
 export const login = credentials => {
+  console.log("Credentials are", credentials)
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
@@ -23,14 +24,14 @@ export const login = credentials => {
       headers: {
         "Content-Type": "application/json"
       },
-      // body: JSON.stringify(credentials)
+      body: JSON.stringify(credentials)
     })
       .then(r => r.json())
-      .then(response => {
-        if (response.error){
-          alert(response.error)
+      .then(user => {
+        if (user.error){
+          alert(user.error)
       } else {
-        dispatch(setCurrentUser(response.data))
+        dispatch(setCurrentUser(user))
         dispatch(resetLoginForm())
       }
     })
@@ -65,7 +66,7 @@ export const login = credentials => {
 //   }
 // }
 
-export const logout = event => {
+export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
     return fetch('http://localhost:3001/api/v1/logout', {
@@ -75,7 +76,7 @@ export const logout = event => {
   }
 }
 
-export const getCurrentUser = () => {
+export const getCurrentUser = (credentials) => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/get_current_user", {
       credentials: "include",
@@ -83,13 +84,14 @@ export const getCurrentUser = () => {
       headers: {
         "Content-Type": "application/json"
       },
+      body: JSON.stringify(credentials)
     })
       .then(r => r.json())
-      .then(response => {
-        if (response.error){
-          alert(response.error)
+      .then(user => {
+        if (user.error){
+          alert(user.error)
       } else {
-        dispatch(setCurrentUser(response.data))
+        dispatch(setCurrentUser(user))
       }
     })
     .catch(console.log)

@@ -1,19 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { NavLink } from 'react-router-dom'
 import Login from "./Login.js"
 import Logout from "./Logout.js"
 
-//
-const NavBar = ({ currentUser}) => {
+const NavBar = ({ currentUser }) => {
   return (
-    <div className='NavBar'>
-      {currentUser ? `Welcome, ${currentUser.name}!` : ""}
+    <div className="NavBar">
+      { currentUser ? `Welcome, ${currentUser.name}` : ""}
+      {console.log(currentUser)}
       { currentUser ? <Logout/> : <Login/> }
     </div>
-    // <div className="NavBar">
-    //   { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
-    // </div>
+    
   )
 }
 

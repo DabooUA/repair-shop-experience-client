@@ -5,11 +5,11 @@ import Login from "./Login.js"
 import Logout from "./Logout.js"
 
 //
-const NavBar = ({ currentUser, loggedIn}) => {
+const NavBar = ({ currentUser}) => {
   return (
     <div className='NavBar'>
       {currentUser ? `Welcome, ${currentUser.name}!` : ""}
-      {currentUser ? <Logout/> : <Login/>}
+      { currentUser ? <Logout/> : <Login/> }
     </div>
     // <div className="NavBar">
     //   { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
@@ -20,7 +20,7 @@ const NavBar = ({ currentUser, loggedIn}) => {
 const mapStateToProps = ({ currentUser }) => {
   return {
     currentUser,
-    loggedIn: !!currentUser
+    // loggedIn: !!currentUser
   }
 }
 

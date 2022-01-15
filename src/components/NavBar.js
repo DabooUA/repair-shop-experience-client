@@ -6,8 +6,8 @@ import Logout from "./Logout.js"
 const NavBar = ({ currentUser }) => {
   return (
     <div className="NavBar">
-      { currentUser ? `Welcome, ${currentUser.name}` : ""}
-      {console.log(currentUser)}
+      { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""}
+      
       { currentUser ? <Logout/> : <Login/> }
     </div>
     
@@ -16,8 +16,7 @@ const NavBar = ({ currentUser }) => {
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser,
-    // loggedIn: !!currentUser
+    currentUser
   }
 }
 

@@ -94,7 +94,7 @@ export const getCurrentUser = (credentials) => {
           alert(response.error)
       } else {
         dispatch(setCurrentUser(response.data))
-        dispatch(getRepairShops())
+        dispatch(getRepairShops([]))
       }
     })
     .catch(console.log)

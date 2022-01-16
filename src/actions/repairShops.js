@@ -19,7 +19,7 @@ export const getRepairShops = () => {
         if (response.error){
           alert(response.error)
       } else {
-        dispatch(setRepairShop([]))
+        dispatch(setRepairShop(response.data))
       }
     })
     .catch(console.log)

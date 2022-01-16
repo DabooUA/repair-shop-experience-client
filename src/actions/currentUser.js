@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { getRepairShops } from "./repairShops.js"
 // import { resetSignupForm } from "./signupForm.js"
 
 export const setCurrentUser = user => {
@@ -32,6 +33,7 @@ export const login = credentials => {
           alert(response.error)
       } else {
         dispatch(setCurrentUser(response.data))
+        dispatch(getRepairShops())
         dispatch(resetLoginForm())
       }
     })
@@ -92,6 +94,7 @@ export const getCurrentUser = (credentials) => {
           alert(response.error)
       } else {
         dispatch(setCurrentUser(response.data))
+        dispatch(getRepairShops())
       }
     })
     .catch(console.log)

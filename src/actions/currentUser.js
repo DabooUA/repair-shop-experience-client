@@ -1,6 +1,6 @@
 import { resetLoginForm } from "./loginForm.js"
 import { getRepairShops } from "./repairShops.js"
-import { resetSignupForm } from "./signupForm.js"
+import { resetSignUpForm } from "./signUpForm.js"
 
 export const setCurrentUser = user => {
   return {
@@ -60,7 +60,7 @@ export const signup = (credentials, history) => {
           alert(user.error)
         } else {
           dispatch(setCurrentUser(user))
-          dispatch(resetSignupForm())
+          dispatch(resetSignUpForm())
           history.push('/')
         }
       })

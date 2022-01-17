@@ -1,28 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateSignUpForm } from "../actions/signupForm.js"
+import { updateSignUpForm } from "../actions/signUpForm.js"
 import { signup } from "../actions/currentUser.js"
 
 
 const SignUp = ({ signUpFormData, updateSignUpForm, signup, history }) => {
 
-  const handleUserInfoInputChange = event => {
+  const handleInputChange = event => {
     const { name, value } = event.target
     const updatedFormInfo = {
       ...signUpFormData,
       [name]: value
-    }
-    updateSignupForm(updatedFormInfo)
-  }
-
-  const handleHomeTownInfoInputChange = event => {
-    const { name, value } = event.target
-    const updatedFormInfo = {
-      ...signUpFormData,
-      hometown: {
-        ...signUpFormData.hometown,
-        [name]: value
-      }
     }
     updateSignUpForm(updatedFormInfo)
   }
@@ -34,12 +22,10 @@ const SignUp = ({ signUpFormData, updateSignUpForm, signup, history }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="city" value={signupFormData.hometown.city} name="city" type="text" onChange={handleHomeTownInfoInputChange} />
-      <input placeholder="state" value={signupFormData.hometown.state} name="state" type="text" onChange={handleHomeTownInfoInputChange} />
-      <input placeholder="country" value={signupFormData.hometown.country} name="country" type="text" onChange={handleHomeTownInfoInputChange} />
+      <input placeholder="Full Name" value={signUpFormData.name} name="name" type="text" onChange={handleInputChange} />
+      <input placeholder="Username" value={signUpFormData.username} name="username" type="text" onChange={handleInputChange} />
+      <input placeholder="Password" value={signUpFormData.password} name="password" type="text" onChange={handleInputChange} />
+    
       <input type="submit" value="Sign Up"/>
     </form>
   )
@@ -47,7 +33,7 @@ const SignUp = ({ signUpFormData, updateSignUpForm, signup, history }) => {
 
 const mapStateToProps = state => {
   return {
-    signupFormData: state.signupForm
+    signUpFormData: state.signUpForm
   }
 }
 

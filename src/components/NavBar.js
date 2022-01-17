@@ -9,8 +9,10 @@ const NavBar = ({ currentUser }) => {
       { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""}
       <button> Log In </button>
       OR 
-      <button> Log Out </button>
+      <button> Signup </button>
+      
       { currentUser ? <Logout/> : <Login/> }
+      <button> Log Out </button>
     </div>
     
   )

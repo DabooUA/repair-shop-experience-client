@@ -8,6 +8,7 @@ import Login from './components/Login';
 // import MainContainer from "./components/MainContainer.js"
 import RepairShop from './components/RepairShop';
 import { Route } from 'react-router-dom'
+import SignUp from './components/SignUp';
 
 class App extends Component{
 
@@ -21,6 +22,7 @@ class App extends Component{
         <div className="App">
           <NavBar/>
             <Route path="/login" component={Login}/>
+            <Route path="/signup" component={SignUp}/>
             <Route path="/repair-shops" component={RepairShop}/>
             
         </div>  

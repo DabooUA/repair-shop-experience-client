@@ -3,7 +3,11 @@ import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from "./actions/currentUser.js"
 import NavBar from "./components/NavBar.js"
-import MainContainer from "./components/MainContainer.js"
+import Login from './components/Login';
+// import Logout from './components/Logout';
+// import MainContainer from "./components/MainContainer.js"
+import RepairShop from './components/RepairShop';
+import { Route } from 'react-router-dom'
 
 class App extends Component{
 
@@ -12,11 +16,15 @@ class App extends Component{
   }
   
     render() {
-      return (
+      return ( 
+        
         <div className="App">
           <NavBar/>
-          <MainContainer/>        
-        </div>
+            <Route path="/login" component={Login}/>
+            <Route path="/repair-shops" component={RepairShop}/>
+            
+        </div>  
+        
       );
     
   }

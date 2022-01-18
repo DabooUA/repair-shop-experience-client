@@ -2,7 +2,11 @@ import React from "react"
 
 const ShopCard = ({shop}) => {
   return(
-    <p>{shop.attributes.repair_shop_name}</p>
+   
+    <div>
+      <h2>{shop.attributes.repair_shop_name}</h2>
+    </div>
+    
   )
 }
 

@@ -16,7 +16,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynchronous action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
   
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/login", {
@@ -35,6 +35,7 @@ export const login = credentials => {
         dispatch(setCurrentUser(response.data))
         dispatch(getRepairShops())
         dispatch(resetLoginForm())
+        history.push('/')
       }
     })
     .catch(console.log)
@@ -55,11 +56,12 @@ export const signup = (credentials, history) => {
       body: JSON.stringify(userInfo)
     })
       .then(r => r.json())
-      .then(user => {
-        if (user.error) {
-          alert(user.error)
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
         } else {
-          dispatch(setCurrentUser(user))
+          dispatch(setCurrentUser(response.data))
+          dispatch(getRepairShops())
           dispatch(resetSignUpForm())
           history.push('/')
         }
@@ -78,7 +80,7 @@ export const logout = () => {
   }
 }
 
-export const getCurrentUser = (credentials) => {
+export const getCurrentUser = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/get_current_user", {
       credentials: "include",
@@ -86,7 +88,6 @@ export const getCurrentUser = (credentials) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(credentials)
     })
       .then(r => r.json())
       .then(response => {
@@ -94,7 +95,7 @@ export const getCurrentUser = (credentials) => {
           alert(response.error)
       } else {
         dispatch(setCurrentUser(response.data))
-        dispatch(getRepairShops([]))
+        dispatch(getRepairShops())
       }
     })
     .catch(console.log)

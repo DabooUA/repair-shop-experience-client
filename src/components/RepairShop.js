@@ -1,18 +1,20 @@
 import React from "react"
 import { connect } from "react-redux"
+// import repairShops from "../reducers/repairShops"
 import ShopCard from "./ShopCard"
 
 const RepairShop = props => {
-  const shopCards = props.repairShops.map(r => <ShopCard shop={r} key={r.id} />)
+  const shopCards = props.shops.length > 0 ? props.shops.map(r => <ShopCard shop={r} key={r.id} />) : null
   return(
     shopCards
   )
 }
 
-const mapStateToProps = ({repairShops}) => {
+const mapStateToProps = state => {
   return {
-    repairShops
+    shops: state.repairShops
   }
 }
+// console.log(ShopCard)
 
 export default connect(mapStateToProps)(RepairShop)

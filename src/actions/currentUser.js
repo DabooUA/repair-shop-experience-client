@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm.js"
-import { getRepairShops } from "./repairShops.js"
+import { clearRepairShops, getRepairShops } from "./repairShops.js"
 import { resetSignUpForm } from "./signUpForm.js"
+
 
 export const setCurrentUser = user => {
   return {
@@ -73,6 +74,7 @@ export const signup = (credentials, history) => {
 export const logout = () => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearRepairShops())
     return fetch('http://localhost:3001/api/v1/logout', {
       credentials: "include",
       method: "DELETE"

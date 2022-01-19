@@ -1,10 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import Logout from './Logout'
 
-const NavBar = ({ currentUser }) => {
+
+const NavBar = ({ currentUser, loggedIn }) => {
   return (
     <div className="NavBar">
-      { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""}
+      <NavLink exact activeClass to="/comments">Comments   |  </NavLink>
+      <NavLink exact activeClass to="/comment/new">Comments   |  </NavLink><br/><br/>
+      {/* {loggedIn ? <Logout/> : null} */}
+      {/* { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""} */}
       
       
       {/* { currentUser ? <Logout/> : <Login/> } */}
@@ -16,7 +22,8 @@ const NavBar = ({ currentUser }) => {
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser
+    currentUser,
+    loggedIn: !!currentUser
   }
 }
 

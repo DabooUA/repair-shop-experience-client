@@ -37,6 +37,12 @@
   }
 }
 
-.nav {
+.NavBar {
   display: flex;
+  flex-direction: row;
+  color: #61dafb;
+}
+
+a.active{
+  color: green
 }

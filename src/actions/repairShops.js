@@ -5,6 +5,12 @@ export const setRepairShop = shops => {
   }
 }
 
+export const clearRepairShops = () => {
+  return {
+    type: "CLEAR_REPAIR_SHOPS"
+  }
+}
+
 export const getRepairShops = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/repairshops", {

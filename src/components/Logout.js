@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { logout } from "../actions/currentUser.js"
 
 
-const Logout = ({ logout}) => {
+const Logout = ({ logout, history}) => {
   return (
     <form onSubmit={(event) => {
         event.preventDefault()
         logout()
-        // history.push('/')
+        history.push('/')
       }
     }>
       <input type="submit" value="Log Out"/>

@@ -5,6 +5,7 @@ import loginForm from './reducers/loginForm.js'
 import repairShops from './reducers/repairShops.js'
 import signUpForm from './reducers/signUpForm.js'
 import newCommentForm from './reducers/newCommentForm.js'
+import userComment from './reducers/userComments.js'
 import thunk from "redux-thunk";
 
 const reducer = combineReducers({
@@ -13,7 +14,8 @@ const reducer = combineReducers({
   loginForm,
   repairShops,
   signUpForm,
-  newCommentForm
+  newCommentForm, 
+  userComment
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

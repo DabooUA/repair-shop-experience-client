@@ -40,7 +40,8 @@
 .NavBar {
   display: flex;
   flex-direction: row;
-  color: #61dafb;
+  color: whitesmoke;
+  background-color: rgb(78, 78, 141)
 }
 
 a.active{

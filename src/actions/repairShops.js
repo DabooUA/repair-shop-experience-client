@@ -11,6 +11,7 @@ export const clearRepairShops = () => {
   }
 }
 
+
 export const getRepairShops = () => {
   return dispatch => {
     return fetch("http://localhost:3001/api/v1/repairshops", {
@@ -31,3 +32,4 @@ export const getRepairShops = () => {
     .catch(console.log)
   }
 }
+

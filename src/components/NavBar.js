@@ -7,10 +7,12 @@ import Logout from './Logout'
 const NavBar = ({ currentUser, loggedIn }) => {
   return (
     <div className="NavBar">
-      <NavLink exact activeClass to="/comments">Comments   |  </NavLink>
-      <NavLink exact activeClass to="/comment/new">Comments   |  </NavLink><br/><br/>
-      {/* {loggedIn ? <Logout/> : null} */}
-      {/* { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""} */}
+      {/* { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""}<br/><br/> */}
+      
+        <NavLink exact activeClassName='' to="/comments">Comments   |  </NavLink>
+        <NavLink exact activeClassName='' to="/comment/new">New Comment   |  </NavLink><br/><br/>
+        {loggedIn ? <Logout/> : null}
+     
       
       
       {/* { currentUser ? <Logout/> : <Login/> } */}

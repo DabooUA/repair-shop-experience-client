@@ -2,14 +2,18 @@ import React from "react";
 import { updateNewCommentForm } from '../actions/newCommentForm.js'
 import { connect } from "react-redux";
 
-const NewCommentForm = ({content, history}) => {
+const NewCommentForm = ({ updateNewCommentForm, formData }) => {
+  const { content } = formData
 
   const handleChange = event => {
     
     const { name, value } = event.target
       updateNewCommentForm (name, value)
   }
-  const handleSubmit = event => event.preventDefault()
+  const handleSubmit = event => {
+    event.preventDefault()
+    
+  }
   return(
     <form onSubmit={handleSubmit}>
       <br/><br/><input placeholder="Type your comment" name="content" onChange={handleChange} value={content} /><br/><br/>
@@ -19,9 +23,9 @@ const NewCommentForm = ({content, history}) => {
 }
 
 const mapStateToProps = state => {
-  const { content } = state.newCommentForm
+ 
   return {
-    content
+    formData: state.newCommentForm
   }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { updateNewCommentForm } from '../actions/newCommentForm.js'
 import { connect } from "react-redux";
-import Home from "./Home.js";
+// import Home from "./Home.js";
 
 const NewCommentForm = ({ updateNewCommentForm, formData }) => {
   const { content } = formData
@@ -16,7 +16,7 @@ const NewCommentForm = ({ updateNewCommentForm, formData }) => {
     
   }
   return(
-    <form onSubmit={handleSubmit}>
+    <form id="textBox" onSubmit={handleSubmit}>
       <label>
       Comment: 
       <br/><br/><textarea placeholder="Type your comment" name="content" onChange={handleChange} value={content} /><br/><br/>

@@ -1,3 +1,5 @@
+import { getUserComments } from "./userComments"
+
 export const setRepairShop = shops => {
   return {
     type: "SET_REPAIR_SHOP",
@@ -27,6 +29,7 @@ export const getRepairShops = () => {
           alert(response.error)
       } else {
         dispatch(setRepairShop(response.data))
+        dispatch(getUserComments())
       }
     })
     .catch(console.log)

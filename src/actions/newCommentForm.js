@@ -4,3 +4,9 @@ export const updateNewCommentForm = (name, value) => {
     formData: { name, value }
   }
 }
+
+export const resetCommentForm = () => {
+  return {
+    type: "RESET_COMMENT_FORM"
+  }
+}

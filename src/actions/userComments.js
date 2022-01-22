@@ -1,3 +1,5 @@
+import { resetCommentForm  } from "./newCommentForm"
+
 export const setUserComment = comments => {
   return {
     type: "SET_USER_COMMENT",
@@ -47,7 +49,8 @@ export const getUserComments = () => {
         if (response.error) {
           alert(response.error)
         } else {
-          dispatch(setUserComment(response.data))
+          // debugger
+          dispatch(setUserComment(response))
         }
       })
       .catch(console.log)
@@ -71,13 +74,35 @@ export const createUserComment = (commentData, history) => {
       body: JSON.stringify(sendCommentData)
     })
     .then(r => r.json())
-      .then(resp => {
-        if (resp.error) {
-          alert(resp.error)
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
         } else {
-          dispatch(addComment(resp.data))
+          dispatch(addComment(response.data))
           dispatch(resetCommentForm())
-          history.push(`/comments/${resp.data.id}`)
+          history.push(`/comments/${response.data.id}`)
+        }
+      })
+      .catch(console.log)
+  }
+}
+
+export const deleteComment = (commentId, history) => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/v1/comments/${commentId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(r => r.json())
+      .then(response => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          dispatch(deleteUserComment(commentId))
+          history.push(`/comments`)
         }
       })
       .catch(console.log)

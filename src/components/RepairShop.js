@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-// import repairShops from "../reducers/repairShops"
 import ShopCard from "./ShopCard"
 
 const RepairShop = props => {

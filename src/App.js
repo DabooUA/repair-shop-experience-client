@@ -13,6 +13,7 @@ import Home from './components/Home.js';
 import { Switch, withRouter } from 'react-router-dom'
 import NewCommentForm from './components/NewCommentForm.js';
 import UserComments from './components/UserComments.js'
+import ShopCard from './components/ShopCard.js'
 
 class App extends Component{
 
@@ -21,7 +22,7 @@ class App extends Component{
   }
   
     render() {
-      const { loggedIn } = this.props
+      const { loggedIn, shops } = this.props
       return ( 
         <div className="App">
         
@@ -30,9 +31,14 @@ class App extends Component{
             <Route exact path='/' render={() => loggedIn ? <RepairShop/> : <UserComments/>}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={SignUp}/>
-            <Route exact path='/repair-shop' component={RepairShop}/>
+            <Route exact path='/repair-shops' component={RepairShop}/>
             <Route exact path='/comments' component={UserComments}/>
             <Route exact path='/comment/new' component={NewCommentForm}/>
+            <Route exact path='/repair-shops/:id' render={props => {
+              const shop = shops.find(shop => shop.id === props.match.params.id)
+              return <ShopCard shop={shop} {...props}/>
+                }
+              }/>
           </Switch> 
         </div>  
         
@@ -43,6 +49,7 @@ class App extends Component{
 const mapStateToProps = state => {
   return {
     loggedIn: !!state.currentUser,
+    shops: state.repairShops
     // comments: state.userComments
   }
 }

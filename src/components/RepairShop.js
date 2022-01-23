@@ -1,12 +1,14 @@
 import React from "react"
 import { connect } from "react-redux"
-import ShopCard from "./ShopCard"
+// import ShopCard from "./ShopCard"
+import { Link } from "react-router-dom"
 
 const RepairShop = props => {
-  const shopCards = props.shops.length > 0 ? props.shops.map(r => <ShopCard shop={r} key={r.id} />) : null
-  return(
-    shopCards
-  )
+  const shopCards = props.shops.length > 0 ? 
+  props.shops.map(r => (<p key={r.id}> <Link to={`/repair-shops/${r.id}`}> {r.attributes.repair_shop_name} </Link></p>)) : null
+  
+  return shopCards
+  
 }
 
 const mapStateToProps = state => {

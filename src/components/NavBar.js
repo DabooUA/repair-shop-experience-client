@@ -9,9 +9,11 @@ const NavBar = ({ currentUser, loggedIn }) => {
     <div className="NavBar">
       {/* { currentUser && currentUser.attributes ? `Welcome, ${currentUser.attributes.name}` : ""}<br/><br/> */}
       
-        <NavLink exact activeClassName='' to="/comments">Comments   |  </NavLink>
+        {/* <NavLink exact activeClassName='' to="/comments">Comments   |  </NavLink> */}
         <NavLink exact activeClassName='' to="/comment/new">New Comment   |  </NavLink><br/><br/>
-        {loggedIn ? <Logout/> : null}
+        {loggedIn ? <><h4>Logged in as {currentUser.attributes.name}</h4>
+          <br/>
+        <Logout/></> : null}
      
       
       

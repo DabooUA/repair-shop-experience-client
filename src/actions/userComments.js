@@ -61,8 +61,8 @@ export const createUserComment = (commentData, history) => {
   return dispatch => {
     const sendCommentData = {
       content: commentData.content,
-      user_id: commentData.user_id,
-      repairshop_id: commentData.repairshop_id
+      user_id: commentData.userId,
+      repairshop_id: commentData.repairshopId
     }
 
     return fetch("http://localhost:3001/api/v1/comments", {
@@ -80,6 +80,7 @@ export const createUserComment = (commentData, history) => {
         } else {
           dispatch(addComment(response.data))
           dispatch(resetCommentForm())
+          dispatch(setUserComment(response))
           history.push(`/comments/${response.data.id}`)
         }
       })

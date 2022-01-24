@@ -11,6 +11,7 @@ const ShopCard = ({shop}) => {
       <h2>{shop.attributes.repair_shop_name}</h2>
       <p>{shop.attributes.street_address}</p>
       <p>{shop.attributes.city}</p>
+      <p>{shop.attributes.state}</p>
       <p>{shop.attributes.zip_code}</p>
       {/* <p><UserComments comments={shop.attributes.comments.content}/></p> */}
       {/* <Link to="/comment/new"> New Comment</Link> */}

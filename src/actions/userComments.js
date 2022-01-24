@@ -50,7 +50,7 @@ export const getUserComments = () => {
           alert(response.error)
         } else {
           // debugger
-          dispatch(setUserComment(response))
+          dispatch(setUserComment(response.data))
         }
       })
       .catch(console.log)

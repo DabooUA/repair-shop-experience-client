@@ -41,7 +41,16 @@
   display: flex;
   flex-direction: row;
   color: whitesmoke;
-  background-color: rgb(78, 78, 141)
+  background-color: rgb(103, 103, 105)
+}
+
+#li {
+  display: inline;
+  float:right
+}
+
+#ul {
+  justify-content: center;
 }
 
 a.active{

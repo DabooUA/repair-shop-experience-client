@@ -7,10 +7,13 @@ export default (state = initialState, action ) => {
 
     case "ADD_COMMENT":
       return state.concat(action.comment)
+
     case "DELETE_COMMENT":
       return state.filter(comment => comment.id === action.commentId ? false : true)
+
     case "CLEAR_USER_COMMENTS":
       return initialState
+      
     default:
       return state
   }

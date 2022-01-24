@@ -28,10 +28,10 @@ class App extends Component{
         
         { loggedIn ? <NavBar location={this.props.location}/> : <Home/> } 
           <Switch>
-            <Route exact path='/' render={() => loggedIn ? <RepairShop/> : <UserComments/>}/>
+            <Route exact path='/' render={() => loggedIn ? <RepairShop/> : null}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={SignUp}/>
-            <Route exact path='/repair-shops' component={RepairShop}/>
+            <Route exact path='/repair-shop' component={RepairShop}/>
             <Route exact path='/comments' component={UserComments}/>
             <Route exact path='/comment/new' component={NewCommentForm}/>
             <Route exact path='/repair-shops/:id' render={props => {

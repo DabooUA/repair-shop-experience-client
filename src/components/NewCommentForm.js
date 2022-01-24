@@ -9,7 +9,6 @@ const NewCommentForm = ({ updateNewCommentForm, formData, createUserComment}) =>
   const { content } = formData
 
   const handleChange = event => {
-    
     const { name, value } = event.target
       updateNewCommentForm (name, value)
   }
@@ -38,7 +37,7 @@ const mapStateToProps = state => {
  
   return {
     formData: state.newCommentForm,
-    userId: state.currentUser.id,
+    // userId: state.currentUser.id,
     
   }
 }
